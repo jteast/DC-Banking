@@ -1,0 +1,13 @@
+bank-system/
+│
+├── sql-scripts/
+│   └── MYSQL
+│
+├── python-backend/
+│   └── Python
+│
+├── frontend/
+│   └── HTML
+│
+└── docker/
+    └── Dockerfile
