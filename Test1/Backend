@@ -1,1 +1,80 @@
+import mysql.connector
 
+# Connect to MySQL database
+def connect_to_database():
+    try:
+        conn = mysql.connector.connect(
+            host="your_host",
+            user="your_username",
+            password="your_password",
+            database="bank_system"
+        )
+        print("Connected to the database")
+        return conn
+    except mysql.connector.Error as e:
+        print(f"Error connecting to MySQL database: {e}")
+        return None
+
+# Example function to retrieve account information
+def get_account_info(account_number):
+    conn = connect_to_database()
+    if conn:
+        try:
+            cursor = conn.cursor(dictionary=True)
+            query = "SELECT * FROM accounts WHERE account_number = %s"
+            cursor.execute(query, (account_number,))
+            account_info = cursor.fetchone()
+            return account_info
+        except mysql.connector.Error as e:
+            print(f"Error retrieving account information: {e}")
+            return None
+        finally:
+            cursor.close()
+            conn.close()
+
+# Example function to update account amount
+def update_account_amount(account_number, new_amount):
+    conn = connect_to_database()
+    if conn:
+        try:
+            cursor = conn.cursor()
+            query = "UPDATE accounts SET account_amount = %s WHERE account_number = %s"
+            cursor.execute(query, (new_amount, account_number))
+            conn.commit()
+            print("Account amount updated successfully")
+        except mysql.connector.Error as e:
+            print(f"Error updating account amount: {e}")
+        finally:
+            cursor.close()
+            conn.close()
+
+# Example usage
+if __name__ == "__main__":
+    # Example usage of functions
+    account_info = get_account_info("123456789")
+    if account_info:
+        print("Account information:", account_info)
+
+    # Example updating account amount
+    update_account_amount("123456789", 5000.00)
+# Function to create a new account
+def create_account(first_name, last_name, account_number, account_amount, personalized_message=None):
+    conn = connect_to_database()
+    if conn:
+        try:
+            cursor = conn.cursor()
+            query = "INSERT INTO accounts (first_name, last_name, account_number, account_amount, personalized_message) VALUES (%s, %s, %s, %s, %s)"
+            values = (first_name, last_name, account_number, account_amount, personalized_message)
+            cursor.execute(query, values)
+            conn.commit()
+            print("Account created successfully")
+        except mysql.connector.Error as e:
+            print(f"Error creating account: {e}")
+        finally:
+            cursor.close()
+            conn.close()
+
+# Example usage
+if __name__ == "__main__":
+    # Example create account
+    create_account("John", "Doe", "123456789", 1000.00, "Welcome to our bank!")

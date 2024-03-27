@@ -1,1 +1,15 @@
+-- Create a new database
+CREATE DATABASE IF NOT EXISTS bank_system;
 
+-- Use the newly created database
+USE bank_system;
+
+-- Create a table to store account information
+CREATE TABLE IF NOT EXISTS accounts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    account_number VARCHAR(20) UNIQUE NOT NULL,
+    account_amount DECIMAL(10, 2) DEFAULT 0.00,
+    personalized_message TEXT
+);
