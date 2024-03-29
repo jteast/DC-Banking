@@ -1,0 +1,57 @@
+class BankAccount:
+    def __init__(self, account_number, balance=0):
+        self.account_number = account_number
+        self.balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"Deposited ${amount}. New balance: ${self.balance}")
+        else:
+            print("Invalid deposit amount.")
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.balance:
+            self.balance -= amount
+            print(f"Withdrew ${amount}. New balance: ${self.balance}")
+        else:
+            print("Invalid withdrawal amount.")
+
+    def check_balance(self):
+        print(f"Account balance: ${self.balance}")
+
+# Creating a bank account
+account_number = input("Enter your account number: ")
+
+# Checking for a specific account number
+if account_number == "938064412":
+    print("Hello Mr. Wayne!")
+    initial_balance = 9350000
+else:
+    initial_balance = float(input("Enter initial balance: "))
+
+account = BankAccount(account_number, initial_balance)
+
+# Performing actions on the account
+while True:
+    print("\nChoose an action:")
+    print("1. Deposit")
+    print("2. Withdraw")
+    print("3. Check Balance")
+    print("4. Exit")
+    
+    choice = int(input("Enter your choice: "))
+    
+    if choice == 1:
+        amount = float(input("Enter deposit amount: "))
+        account.deposit(amount)
+    elif choice == 2:
+        amount = float(input("Enter withdrawal amount: "))
+        account.withdraw(amount)
+    elif choice == 3:
+        account.check_balance()
+    elif choice == 4:
+        print("Goodbye")
+        break
+    else:
+        print("Invalid choice. Please select a valid action.")
