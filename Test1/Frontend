@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Application</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <h1>Bank Application</h1>
+    
+    <div>
+        <h2>Create Account</h2>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName">
+        <button onclick="createAccount()">Create Account</button>
+    </div>
+    
+    <div>
+        <h2>Deposit/Withdraw Money</h2>
+        <label for="accountNumber">Account Number:</label>
+        <input type="text" id="accountNumber" name="accountNumber">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount">
+        <button onclick="deposit()">Deposit</button>
+        <button onclick="withdraw()">Withdraw</button>
+    </div>
+    
+    <div>
+        <h2>Personalized Message</h2>
+        <label for="accountNumberMessage">Account Number:</label>
+        <input type="text" id="accountNumberMessage" name="accountNumberMessage">
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message">
+        <button onclick="updateMessage()">Update Message</button>
+    </div>
 
+    <script>
+        // JavaScript functions to interact with backend
+        function createAccount() {
+            // Implement AJAX or fetch to send data to backend for creating account
+            alert("Create Account functionality not implemented yet");
+        }
+
+        function deposit() {
+            // Implement AJAX or fetch to send data to backend for depositing money
+            alert("Deposit functionality not implemented yet");
+        }
+
+        function withdraw() {
+            // Implement AJAX or fetch to send data to backend for withdrawing money
+            alert("Withdraw functionality not implemented yet");
+        }
+
+        function updateMessage() {
+            // Implement AJAX or fetch to send data to backend for updating personalized message
+            alert("Update Message functionality not implemented yet");
+        }
+    </script>
+</body>
+</html>
