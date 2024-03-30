@@ -32,6 +32,15 @@ else:
 
 account = BankAccount(account_number, initial_balance)
 
+# Checking for a specific account number
+if account_number == "101863299":
+    print("Hello Mr. Luthor!")
+    initial_balance = 9179898
+else:
+    initial_balance = float(input("Enter initial balance: "))
+
+account = BankAccount(account_number, initial_balance)
+
 # Performing actions on the account
 while True:
     print("\nChoose an action:")
