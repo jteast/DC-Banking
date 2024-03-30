@@ -27,13 +27,7 @@ account_number = input("Enter your account number: ")
 if account_number == "938064412":
     print("Hello Mr. Wayne!")
     initial_balance = 9350000
-else:
-    initial_balance = float(input("Enter initial balance: "))
-
-account = BankAccount(account_number, initial_balance)
-
-# Checking for a specific account number
-if account_number == "101863299":
+elif account_number == "101863299":
     print("Hello Mr. Luthor!")
     initial_balance = 9179898
 else:
