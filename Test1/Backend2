@@ -30,6 +30,9 @@ if account_number == "938064412":
 elif account_number == "101863299":
     print("Hello Mr. Luthor!")
     initial_balance = 9179898
+elif account_number == "036806131":
+    print("Hello Mr. Cobblepot")
+    initial_balance = 3544789
 else:
     initial_balance = float(input("Enter initial balance: "))
 
